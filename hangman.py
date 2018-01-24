@@ -1,7 +1,7 @@
 import time
 
 # Personalize the game with the players name
-name = raw_input("What is your name? ")
+name = input("What is your name? ")
 print ("Hello, " + name, "Time to play hangman!")
 print (" ")
 time.sleep(3)
@@ -30,14 +30,14 @@ while turns > 0:
 
     print
 
-    guess = raw_input("guess a character:") 
-        guesses += guess                    
+    guess = input("guess a character:") 
+    guesses += guess                    
 
     if guess not in word:  
         turns -= 1        
         print ("Wrong")  
  
-        print "You have", + turns, 'more guesses' 
+        print ("You have", + turns, 'more guesses')
  
         if turns == 0:           
     
