@@ -1,19 +1,27 @@
+# import modules
 import time
-import secrets
+import random
+import replit
 
+# beginning verbage personalized with name
 name = input("What is your name? ")
 print (" ")
-print ("Hello " + name+ ", time to play hangman!")
+print ("Hello " + name + ", time to play hangman!")
 print (" ")
 time.sleep(1.5)
 print ("Start guessing...")
+print (" ")
 time.sleep(0.5)
 
-words = ['christmas', 'easter', 'thanksgiving', 'halloween', 'valentines']
-word = secrets.choice(words)
-guesses = ''
-turns = 10
+# words used in game
+words = ['christmas', 'easter', 'thanksgiving', 'halloween', 'valentines', 'fourthofjuly', 'memorialday', 'calendar', 'month', 'year', 'holiday']
+word = random.choice(words)
 
+# variables initialized
+guesses = ''
+turns = 7
+
+# 
 while turns > 0:
     failed = 0
     for letter in word:
@@ -23,13 +31,15 @@ while turns > 0:
             print ("_")
             failed += 1
     if failed == 0:
-        print ("You win!!!")
+        print (" ")
+        print ("You win, " + name)
         break
 
     time.sleep(0.5)
     print (" ")
     guess = input("Guess a character:")
     guesses += guess
+    replit.clear()
     print ("Letters used: ", guesses)
     if guess in word:
       print ("Correct")
@@ -41,5 +51,5 @@ while turns > 0:
         print ("You have", turns, 'more guesses')
         print (" ")
         if turns == 0:
-          print ("You Lose!!!")
+          print ("You Lose, " + name)
           break
